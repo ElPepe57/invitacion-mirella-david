@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Gift, Car } from 'lucide-react';
+import { Gift, Car, Heart, UtensilsCrossed, Music, DoorOpen } from 'lucide-react';
 import { BotanicalLeaf } from './BotanicalLeaf';
 // Using standard relative path for the attached image
 import heroImage from '../../imports/Captura_de_pantalla_2026-04-18_213850.png';
@@ -50,8 +50,8 @@ export function Invitation() {
                 className="pt-6 flex flex-col items-center space-y-4"
               >
                 <BotanicalLeaf className="text-[#A68B67]" width={24} height={24} />
-                <p className="font-['Montserrat',sans-serif] uppercase tracking-[0.3em] text-[9px] text-[#1A2A44] font-medium">
-                  Nos Casamos
+                <p className="font-['Cormorant_Garamond',serif] italic text-[#1A2A44] text-base leading-tight max-w-[240px] text-center">
+                  Cuidaré de ti, tú de mí y Dios de nosotros
                 </p>
               </motion.div>
 
@@ -77,7 +77,7 @@ export function Invitation() {
                 <h1 className="font-['Cormorant_Garamond',serif] text-4xl md:text-5xl text-[#1A2A44] leading-none font-medium">
                   Mirella <span className="text-2xl italic mx-1 font-light text-[#A68B67]">&amp;</span> David
                 </h1>
-                <p className="font-['Cormorant_Garamond',serif] italic text-[#1A2A44] text-sm">
+                <p className="font-['Cormorant_Garamond',serif] italic text-[#1A2A44] text-lg">
                   27 de Junio 2026
                 </p>
               </motion.div>
@@ -88,7 +88,7 @@ export function Invitation() {
               onClick={() => setIsFlipped(true)}
               className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
             >
-              <span className="text-[#1A2A44] text-[8px] uppercase tracking-widest font-medium">Girar</span>
+              <span className="text-[#1A2A44] text-[9px] uppercase tracking-widest font-medium">Girar</span>
               <div className="w-3.5 h-3.5 border border-[#1A2A44] rounded-full flex items-center justify-center animate-bounce">
                 <div className="w-0.5 h-0.5 bg-[#1A2A44] rounded-full" />
               </div>
@@ -110,14 +110,11 @@ export function Invitation() {
             <div className="flex-1 flex flex-col items-center justify-start text-center w-full max-w-[90%] mx-auto space-y-12 pb-12">
               
               <div className="space-y-4">
-                <p className="font-['Cormorant_Garamond',serif] text-[#1A2A44] text-xl italic">
-                  Junto a nuestras familias
-                </p>
                 <h2 className="font-['Cormorant_Garamond',serif] text-[#1A2A44] text-3xl font-medium">
                   Mirella & David
                 </h2>
                 <p className="font-['Cormorant_Garamond',serif] text-[#1A2A44] text-lg leading-relaxed">
-                  Tienen el honor de invitarte a celebrar su matrimonio.
+                  Queremos que seas testigo de nuestro amor acompañándonos en este día tan especial.
                 </p>
               </div>
 
@@ -170,6 +167,40 @@ export function Invitation() {
                   </p>
                   <span className="text-[9px] uppercase tracking-widest text-[#A68B67] mt-3 inline-block border-b border-[#A68B67]/30 pb-0.5">Ver Mapa</span>
                 </a>
+              </div>
+
+              <div className="w-12 h-[1px] bg-[#A68B67]/40 shrink-0" />
+
+              {/* Itinerario */}
+              <div className="space-y-6 w-full">
+                <h3 className="font-['Cormorant_Garamond',serif] text-[#1A2A44] text-2xl italic text-center">
+                  Itinerario
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { time: '2:00 PM', title: 'Recepción', icon: DoorOpen },
+                    { time: '2:30 PM', title: 'Ceremonia', icon: Heart },
+                    { time: '3:00 PM', title: 'Banquete', icon: UtensilsCrossed },
+                    { time: '4:00 PM', title: 'Fiesta', icon: Music },
+                  ].map((item) => {
+                    const IconComponent = item.icon;
+                    return (
+                      <div key={item.time} className="flex items-center justify-between gap-4 rounded-3xl border border-[#A68B67]/20 bg-white/80 px-4 py-4 shadow-sm">
+                        <div>
+                          <p className="font-['Montserrat',sans-serif] text-[#1A2A44] text-xl font-semibold">
+                            {item.time}
+                          </p>
+                          <p className="font-['Montserrat',sans-serif] text-[#1A2A44]/70 text-[11px] uppercase tracking-[0.2em] mt-1">
+                            {item.title}
+                          </p>
+                        </div>
+                        <div className="w-10 h-10 rounded-full border border-[#A68B67]/20 flex items-center justify-center text-[#A68B67]">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               <div className="w-12 h-[1px] bg-[#A68B67]/40 shrink-0" />
