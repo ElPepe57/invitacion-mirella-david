@@ -22,7 +22,10 @@ export function Invitation() {
           initial={false}
           animate={{ rotateY: isFlipped ? 180 : 0 }}
           transition={{ duration: 0.8, type: 'spring', stiffness: 40, damping: 15 }}
-          style={{ transformStyle: 'preserve-3d' }}
+          style={{
+            transformStyle: 'preserve-3d',
+            WebkitTransformStyle: 'preserve-3d',
+          }}
         >
           {/* CARA FRONTAL */}
           <div 
@@ -94,6 +97,7 @@ export function Invitation() {
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)',
+              WebkitTransform: 'rotateY(180deg)',
             }}
           >
             <BotanicalLeaf className="text-[#A68B67] mb-8 shrink-0" width={48} height={48} />
