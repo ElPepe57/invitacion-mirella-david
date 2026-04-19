@@ -30,7 +30,12 @@ export function Invitation() {
           {/* CARA FRONTAL */}
           <div 
             className={`absolute inset-0 w-full h-full flex flex-col justify-between overflow-hidden bg-[#F9F5F0] rounded-sm border border-[#A68B67]/20 ${isFlipped ? 'pointer-events-none' : ''}`}
-            style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+            style={{
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'rotateY(0deg)',
+              WebkitTransform: 'rotateY(0deg)',
+            }}
           >
             {/* Inner Border Frame */}
             <div className="absolute inset-4 border border-[#A68B67]/20 z-0 pointer-events-none" />
